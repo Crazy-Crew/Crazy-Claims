@@ -6,4 +6,4 @@ pluginManagement {
 }
 
 // Project Name!
-rootProject.name = "Example-Plugin"
+rootProject.name = "Crazy-Claims"
