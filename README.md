@@ -3,7 +3,7 @@
 [![Join us on Discord](https://img.shields.io/discord/182615261403283459.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.badbones69.com)
 
 [![CrazyClaim's Stargazers](https://img.shields.io/github/stars/Crazy-Crew/Crazy-Claims?label=stars&logo=github)](https://github.com/Crazy-Crew/Crazy-Claims/stargazers)
-[![CrazyClaim's Forks](https://img.shields.io/github/forks/Crazy-Crew/Crazy-Claim?label=forks&logo=github)](https://github.com/Crazy-Crew/Crazy-Claims/network/members)
+[![CrazyClaim's Forks](https://img.shields.io/github/forks/Crazy-Crew/Crazy-Claims?label=forks&logo=github)](https://github.com/Crazy-Crew/Crazy-Claims/network/members)
 [![CrazyClaim's Watchers](https://img.shields.io/github/watchers/Crazy-Crew/Crazy-Claims?label=watchers&logo=github)](https://github.com/Crazy-Crew/Crazy-Claims/watchers)
 
 CrazyClaims hopes to be a good plugin.
