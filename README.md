@@ -1,1 +1,2 @@
-# Example Plugin
+# Crazy Claims
+## A decent claims plugin?
