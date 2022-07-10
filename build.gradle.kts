@@ -17,11 +17,11 @@ java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 
-group = "me.example.exampleplugin"
+group = "com.badbones69.crazyclaims"
 
 // System.getEnv("BUILD_NUMBER") is if you use Jenkins to build otherwise it just appends SNAPSHOT.
 version = "1.0.0-${System.getenv("BUILD_NUMBER") ?: "SNAPSHOT"}"
-description = "Example Plugin!"
+description = "A decent claims plugin?"
 
 // A list of repositories
 repositories {
