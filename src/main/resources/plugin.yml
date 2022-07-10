@@ -1,7 +1,7 @@
 # The name of your plugin.
-name: Example-Plugin
+name: CrazyClaims
 # The path of your plugin i.e me.example.exampleplugin.ExamplePlugin which can be edited in the build.gradle.kts.
-main: "${group}.ExamplePlugin"
+main: "${group}.CrazyClaims"
 # The version of your plugin i.e 1.0.3-SNAPSHOT which can be edited in the build.gradle.kts.
 # We recommend you use semantic versioning: https://semver.org/
 version: ${version}
@@ -13,71 +13,9 @@ api-version: 1.18
 description: ${description}
 
 # The author of your plugin.
-author: "Parchat"
-
-# Available values: STARTUP & POSTWORLD
-# Default POSTWORLD
-load: STARTUP
+author: "Ryder Belserion"
 
 # Your website or GitHub
-website: "your-website.com"
+website: "https://github.com/Crazy-Crew/Crazy-Claims/"
 
-# Any plugins here will require your example plugin to have them loaded to function.
-# depend:
-#  - OtherPlugin
-
-# Define your own prefix instead of using the plugin name
-prefix: "Example-Plugin"
-
-# A list of plugins that are optional but required for certain features to work.
-softdepend:
-  - OtherPlugin
-
-# A list of plugins that load after your plugin.
-loadbefore:
-  - OtherPlugin
-
-# Additionally you can do this as well
-
-# authors:
-#   - Author One
-#   - Author Two
-
-commands:
-  # Name of command.
-  blank-command:
-    # What command does.
-    description: What do I do?
-    # Extra ways to run your command.
-    aliases:
-      - one
-      - two
-    # An optional value but sets a permission by default so the command will not show up in tab complete.
-    permission: "you.need.me"
-    # Supply a no permission message.
-    permission-message: "You do not have permission!"
-    # Usage of command.
-    usage: /blank-command
-
-permissions:
-  # Permission One
-  you.need.me:
-    # Change who gets it by default.
-    # false means no one gets it including the children permissions.
-    # true means everyone gets it including the children permissions.
-
-    # op will default true if player is op.
-    # not op is the opposite of op meaning false.
-    default: op
-    children:
-      you.get.me.also: true
-
-  you.get.me.also:
-    default: false
-
-# A list of libraries to load from Maven Central.authors:
-# Some people swear not to use it, but it works, eliminates a need to relocate.authors:
-# Very useful for large dependencies not from Minecraft however you should still use specific libraries in their intended way.
-libraries:
-  # Example:
-  - com.squareup.okhttp3:okhttp:4.9.0
+libraries: []
