@@ -1,0 +1,5 @@
+package com.badbones69.crazyclaims.api;
+
+public interface ClaimEvent {
+
+}
