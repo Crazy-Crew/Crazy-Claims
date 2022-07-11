@@ -1,0 +1,10 @@
+name: CrazyClaims
+main: "com.badbones69.crazyclaims.paper"
+version: ${version}
+api-version: 1.18
+description: ${description}
+author: "Ryder Belserion"
+website: "https://github.com/Crazy-Crew/Crazy-Claims/"
+
+libraries:
+  - com.google.inject:guice:5.1.0
