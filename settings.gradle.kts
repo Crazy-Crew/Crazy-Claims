@@ -1,3 +1,9 @@
+@file:Suppress("UnstableApiUsage")
+
+dependencyResolutionManagement {
+    repositories.gradlePluginPortal()
+}
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -7,3 +13,7 @@ pluginManagement {
 
 // Project Name!
 rootProject.name = "Crazy-Claims"
+
+include("api", "paper")
+
+enableFeaturePreview("VERSION_CATALOGS")
