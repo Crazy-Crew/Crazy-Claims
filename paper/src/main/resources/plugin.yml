@@ -1,5 +1,5 @@
 name: CrazyClaims
-main: "com.badbones69.crazyclaims.paper"
+main: "com.badbones69.crazyclaims.paper.CrazyClaims"
 version: ${version}
 api-version: 1.18
 description: ${description}
