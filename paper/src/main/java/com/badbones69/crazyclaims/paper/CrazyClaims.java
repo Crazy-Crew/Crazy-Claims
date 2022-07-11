@@ -2,6 +2,7 @@ package com.badbones69.crazyclaims.paper;
 
 import com.badbones69.crazyclaims.paper.api.CrazyManager;
 import com.badbones69.crazyclaims.paper.handlers.ModuleLoader;
+import com.badbones69.crazyclaims.paper.handlers.modules.ConfigModule;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -15,12 +16,15 @@ public class CrazyClaims extends JavaPlugin {
     @Inject
     private CrazyManager crazyManager;
 
+    @Inject
+    private ConfigModule configModule;
+
     @Override
     public void onEnable() {
         try {
             Class.forName("io.papermc.paper.configuration.PaperConfigurations");
         } catch (ClassNotFoundException e) {
-            getServer().getLogger().severe("This plugin requires Paper or a fork of to run.");
+            getServer().getLogger().severe("This plugin requires Paper or any fork based on Paper to run.");
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
@@ -35,9 +39,9 @@ public class CrazyClaims extends JavaPlugin {
             injector.injectMembers(this);
 
             crazyManager.load();
-        } catch (Exception e) {
-            getLogger().severe(e.getMessage());
-            getLogger().severe(e.getCause().getMessage());
+        } catch (Exception ex) {
+            getLogger().severe(ex.getMessage());
+            getLogger().severe(ex.getCause().getMessage());
 
             return;
         }
@@ -49,8 +53,13 @@ public class CrazyClaims extends JavaPlugin {
     public void onDisable() {
         if (!isEnabled) return;
 
-        crazyManager.stop();
+        try {
+            injector = null;
 
-        injector = null;
+            crazyManager.stop();
+        } catch (Exception ex) {
+            getLogger().severe(ex.getMessage());
+            getLogger().severe(ex.getCause().getMessage());
+        }
     }
 }
