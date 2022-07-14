@@ -1,7 +1,10 @@
 package com.badbones69.crazyclaims.paper;
 
 import com.badbones69.crazyclaims.paper.api.CrazyManager;
-import com.badbones69.crazyclaims.paper.handlers.ModuleLoader;
+import com.badbones69.crazyclaims.paper.api.FileManager;
+import com.badbones69.crazyclaims.paper.api.config.ConfigFile;
+import com.badbones69.crazyclaims.paper.api.config.LangFile;
+import com.badbones69.crazyclaims.paper.handlers.PluginModule;
 import com.badbones69.crazyclaims.paper.handlers.modules.ConfigModule;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -16,35 +19,49 @@ public class CrazyClaims extends JavaPlugin {
     @Inject
     private CrazyManager crazyManager;
 
-    @Inject
-    private ConfigModule configModule;
+    @Inject private ConfigModule configModule;
+
+    @Inject private ConfigFile configFile;
+    @Inject private LangFile langFile;
+
+    @Inject private FileManager fileManager;
+
+    @Inject private TestCommand testCommand;
 
     @Override
     public void onEnable() {
-        try {
-            Class.forName("io.papermc.paper.configuration.PaperConfigurations");
-        } catch (ClassNotFoundException e) {
-            getServer().getLogger().severe("This plugin requires Paper or any fork based on Paper to run.");
-            getServer().getPluginManager().disablePlugin(this);
-            return;
-        }
 
         try {
             crazyManager = new CrazyManager(this);
+            fileManager = new FileManager();
 
-            ModuleLoader module = new ModuleLoader(this, crazyManager);
+            configFile = new ConfigFile();
+            langFile = new LangFile();
+
+            PluginModule module = new PluginModule(this, configFile, langFile, crazyManager, fileManager);
 
             injector = module.createInjector();
 
             injector.injectMembers(this);
 
+            fileManager.registerCustomFolder("/locale")
+                    .registerDefaultGenerateFiles("locale-en.yml", "/locale")
+                    .registerDefaultGenerateFiles("locale-de.yml", "/locale").setup().isLogging(true);
+
+            configModule.enable();
+
             crazyManager.load();
-        } catch (Exception ex) {
-            getLogger().severe(ex.getMessage());
-            getLogger().severe(ex.getCause().getMessage());
+        } catch (Exception e) {
+            getLogger().severe(e.getMessage());
+
+            for (StackTraceElement stack : e.getStackTrace()) {
+                getLogger().severe(String.valueOf(stack));
+            }
 
             return;
         }
+
+        getCommand("test").setExecutor(testCommand);
 
         isEnabled = true;
     }
@@ -53,13 +70,8 @@ public class CrazyClaims extends JavaPlugin {
     public void onDisable() {
         if (!isEnabled) return;
 
-        try {
-            injector = null;
+        crazyManager.stop();
 
-            crazyManager.stop();
-        } catch (Exception ex) {
-            getLogger().severe(ex.getMessage());
-            getLogger().severe(ex.getCause().getMessage());
-        }
+        injector = null;
     }
 }
