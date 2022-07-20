@@ -1,7 +1,5 @@
 plugins {
     `kotlin-dsl`
-
-    `java-library`
 }
 
 repositories {
@@ -11,16 +9,13 @@ repositories {
 
 dependencies {
     implementation("io.papermc.paperweight.userdev:io.papermc.paperweight.userdev.gradle.plugin:1.3.7")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
 }
 
-java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
-}
-
-kotlin {
-    jvmToolchain {
-        (this as JavaToolchainSpec).apply {
-            languageVersion.set(JavaLanguageVersion.of(17))
+tasks {
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = "17"
         }
     }
 }

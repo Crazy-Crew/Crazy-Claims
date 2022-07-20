@@ -1,9 +1,5 @@
 plugins {
-    java
-}
-
-java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+    kotlin("jvm")
 }
 
 repositories {
@@ -14,8 +10,9 @@ repositories {
 }
 
 tasks {
-    compileJava {
-        options.encoding = "UTF-8"
-        options.release.set(17)
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = "17"
+        }
     }
 }

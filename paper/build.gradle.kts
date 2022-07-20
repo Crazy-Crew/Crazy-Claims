@@ -15,9 +15,9 @@ dependencies {
 
     compileOnly("io.papermc.paper:paper-api:1.19-R0.1-SNAPSHOT")
 
-    compileOnly("com.google.inject:guice:5.1.0")
-
     paperDevBundle("1.19-R0.1-SNAPSHOT")
+
+    compileOnly(kotlin("stdlib", "1.7.0"))
 }
 
 tasks {

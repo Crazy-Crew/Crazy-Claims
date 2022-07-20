@@ -1,1 +1,3 @@
 test-string: 'Guten Tag!'
+# Here is a comment.
+test-string-2: 'Guten Tag!'

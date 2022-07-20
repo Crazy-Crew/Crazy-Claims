@@ -11,4 +11,4 @@ commands:
     description: A test command.
 
 libraries:
-  - com.google.inject:guice:5.1.0
+  - org.jetbrains.kotlin:kotlin-stdlib:1.7.0
