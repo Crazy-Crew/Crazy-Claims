@@ -1,14 +1,5 @@
-@file:Suppress("UnstableApiUsage")
-
 dependencyResolutionManagement {
-    repositories.gradlePluginPortal()
-}
-
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        maven("https://repo.papermc.io/repository/maven-public/")
-    }
+    includeBuild("build-logic")
 }
 
 // Project Name!

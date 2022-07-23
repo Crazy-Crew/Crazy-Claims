@@ -24,7 +24,7 @@ class CrazyClaims : JavaPlugin() {
         if (!pluginEnabled) return
 
         //crazyManager.stop();
-
-        //injector = null;
     }
 }
+
+val plugin = JavaPlugin.getPlugin(CrazyClaims::class.java)

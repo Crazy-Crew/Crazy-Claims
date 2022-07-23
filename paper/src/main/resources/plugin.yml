@@ -11,4 +11,5 @@ commands:
     description: A test command.
 
 libraries:
-  - org.jetbrains.kotlin:kotlin-stdlib:1.7.0
+  - org.jetbrains.kotlin:kotlin-stdlib:1.7.10
+  - org.jetbrains.kotlin:kotlin-reflect:1.7.10

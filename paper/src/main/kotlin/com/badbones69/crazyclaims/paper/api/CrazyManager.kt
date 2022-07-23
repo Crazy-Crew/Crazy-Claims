@@ -4,7 +4,7 @@ import com.badbones69.crazyclaims.paper.CrazyClaims
 
 class CrazyManager constructor(plugin: CrazyClaims) {
 
-    private var plugin: CrazyClaims? = null;
+    private var plugin: CrazyClaims? = null
 
     init {
         this.plugin = plugin
